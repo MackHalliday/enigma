@@ -3,11 +3,13 @@ require 'minitest/pride'
 require './lib/enigma'
 require './lib/offset'
 require 'pry'
+require 'mocha/minitest'
 
 class OffsetTest < MiniTest::Test
 
   def setup
     @offset_1 = Offset.new
+    Offset.any_instance.stubs(:todays_date).returns("260719")
   end
 
   def test_it_exist
@@ -33,6 +35,8 @@ class OffsetTest < MiniTest::Test
   def test_set_values_as_keys
     @offset_1.set_key_values
 
-    assert_equal 10000, @offset_1.keys
+    expected = {:a=>"6", :b=>"9", :c=>"6", :d=>"1"}
+
+    assert_equal expected, @offset_1.keys
   end
 end
