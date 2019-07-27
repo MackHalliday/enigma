@@ -2,46 +2,47 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/key'
 require 'pry'
+require 'mocha/minitest'
 
 class KeyTest < MiniTest::Test
 
   def setup
-    @key_1 = Key.new
+
+     @key_given = Key.new("00234")
+     @key_not_given = Key.new
   end
 
   def test_it_exist
 
-    assert_instance_of Key, @key_1
+    assert_instance_of Key, @key_given
+    assert_instance_of Key, @key_not_given
+    binding.pry
   end
 
   def test_attributes_of_key
+    @key_not_given.
 
-    assert_equal ({}), @key_1.keys
+    assert_equal "00234", @key_given.key
+    #assert_equal "01221", @key_not_given.random_num
   end
 
-  def test_random_five_digit_number
+  def test_it_can_create_pairs
 
-    assert_equal "10000", @key_1.random_num
+    expected_1 = [["0", "0"], ["0", "2"], ["2", "3"], ["3", "4"]]
+
+    assert_equal expected_1, @key_given.create_pairs
   end
 
-  def test_create_pairs
+  def test_it_can_join_pairs
 
-    assert_equal [10, 04, 40, 02], @key_1.create_num_pairs
+    expected_1 = ["00", "02", "23", "34"]
+    assert_equal expected_1, @key_given.join_pairs
   end
 
-  def test_pairs_can_be_joined
+  def test_it_can_create_key_values
 
-    assert_equal [10, 04, 40, 02], @key_1.join_pairs_nums_together
-  end
+    expected_1 = {:a=>"00", :b=>"02", :c=>"23", :d=>"34"}
 
-  def test_set_values_as_keys
-
-    assert_equal 100, @key_1.set_num_values_as_keys
-  end
-
-  def test_can_update_key_attribute
-    @key_1.set_key_values
-
-    assert_equal 1000, @key_1.keys
+    assert_equal expected_1, @key_given.get_key_values
   end
 end
