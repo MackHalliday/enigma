@@ -24,7 +24,7 @@ class Key
     create_pairs.map {|pair| pair[0].to_s + pair[1].to_s}
   end
 
-  def create_key_values
+  def get_key_values
     keys = [:a, :b, :c, :d]
     key_hash = Hash[keys.zip join_pairs]
   end
