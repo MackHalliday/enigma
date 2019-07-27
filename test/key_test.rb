@@ -17,8 +17,8 @@ class KeyTest < MiniTest::Test
   end
 
   def test_attributes_of_key
-    skip
-    assert_equal ({}), @key_1.keys(10000)
+    # skip
+    assert_equal ({}), @key_1.keys
   end
 
   def test_random_five_digit_number
@@ -46,8 +46,9 @@ class KeyTest < MiniTest::Test
   end
 
   def test_can_update_key_attribute
-    #@key_1.set_key_values
-    skip
-    assert_equal 1000, @key_1.keys
+    # skip
+    expected = {:a => "01",:b => "12", :c => "22", :d => "21"}
+
+    assert_equal expected, @key_1.keys
   end
 end
