@@ -5,8 +5,8 @@ class Offset
 
   attr_reader :keys
 
-  def initialize()
-    @keys = {}
+  def initialize(keys = set_key_values)
+    @keys = keys
   end
 
   def todays_date

@@ -4,8 +4,8 @@ class Key
 
   attr_reader :keys
 
-  def initialize(keys = {})
-    @keys = keys
+  def initialize(keys = set_num_values_as_keys)
+    @keys = {}
   end
 
   def random_num
