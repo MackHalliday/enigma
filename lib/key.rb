@@ -2,7 +2,7 @@ require 'pry'
 
 class Key
 
-  attr_accessor :key
+  attr_reader :key
 
   def initialize(key = random_num)
     @key = key
