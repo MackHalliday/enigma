@@ -44,6 +44,4 @@ class KeyTest < MiniTest::Test
 
     assert_equal 1000, @key_1.keys
   end
-
-
 end
