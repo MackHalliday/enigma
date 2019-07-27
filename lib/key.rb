@@ -20,12 +20,12 @@ class Key
     @key.split(//).each_cons(2).to_a
   end
 
-  def join_pairs_together
-    create_num_pairs.map {|pair| pair[0].to_s + pair[1].to_s}
+  def join_pairs
+    create_pairs.map {|pair| pair[0].to_s + pair[1].to_s}
   end
 
-  def created_key_values
+  def create_key_values
     keys = [:a, :b, :c, :d]
-    key_hash = Hash[keys.zip join_pairs_nums_together]
+    key_hash = Hash[keys.zip join_pairs]
   end
 end
