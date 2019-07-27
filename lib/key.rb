@@ -2,22 +2,22 @@ require 'pry'
 
 class Key
 
-  attr_reader :keys, :five_digit_num
+  attr_reader :keys, :five_digit
 
-  def initialize(five_digit_num = random_num)
-    @five_digit_num = five_digit_num
-    @keys = keys
+  def initialize(five_digit = random_num)
+    @five_digit = five_digit
+    @keys = {}
   end
 
   def random_num
     random_digits = []
-    5.times do random_digits << rand(0..9)
+    5.times do random_digits << rand(0..9).to_s
     end
-    random_digits
+    @five_digit = random_digits.join
   end
 
-  def create_num_pairs()
-    random_num.each_cons(2).to_a
+  def create_num_pairs
+    @five_digit.split(//).each_cons(2).to_a
   end
 
   def join_pairs_nums_together
@@ -27,6 +27,6 @@ class Key
   def set_num_values_as_keys
     keys = [:a, :b, :c, :d]
     key_hash = Hash[keys.zip join_pairs_nums_together]
-    @keys = set_num_values_as_keys
+    @keys = key_hash
   end
 end

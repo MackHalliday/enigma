@@ -8,8 +8,9 @@ class KeyTest < MiniTest::Test
 
   def setup
     @key_1 = Key.new
+    @key_2 = Key.new("00234")
 
-    Key.any_instance.stubs(:random_num).returns([0, 1, 2, 2, 1])
+    Key.any_instance.stubs(:random_num).returns("01221")
   end
 
   def test_it_exist
@@ -18,22 +19,22 @@ class KeyTest < MiniTest::Test
   end
 
   def test_attributes_of_key
-    key_2 = Key.new("00234")
-    
-    assert_equal ({}), @key_2.keys
+
+    #assert_equal 10000, @key_1.five_digit
+    assert_equal ("00234"), @key_2.five_digit
   end
 
   def test_random_five_digit_number
     # skip
-    expected = [0, 1, 2, 2, 1]
-
-    assert_equal 5, @key_1.random_num.count
-    assert_equal expected, @key_1.random_num
+    assert_equal 5, @key_1.random_num.length
+    assert_equal "01221", @key_1.random_num
   end
 
   def test_create_pairs
     # skip
-    expected = [[0, 1], [1, 2], [2, 2], [2, 1]]
+    @key_1.stubs(:five_digit).returns("01221")
+
+    expected = [["0", "1"], ["1", "2"], ["2", "2"], ["2", "1"]]
     assert_equal expected, @key_1.create_num_pairs
   end
 
