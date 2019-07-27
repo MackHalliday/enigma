@@ -2,9 +2,10 @@ require 'pry'
 
 class Key
 
-  attr_reader :keys
+  attr_reader :keys, :five_digit_num
 
-  def initialize(keys = set_num_values_as_keys)
+  def initialize(five_digit_num = random_num)
+    @five_digit_num = five_digit_num
     @keys = keys
   end
 
@@ -15,7 +16,7 @@ class Key
     random_digits
   end
 
-  def create_num_pairs
+  def create_num_pairs()
     random_num.each_cons(2).to_a
   end
 
@@ -26,6 +27,6 @@ class Key
   def set_num_values_as_keys
     keys = [:a, :b, :c, :d]
     key_hash = Hash[keys.zip join_pairs_nums_together]
-    # @keys = set_num_values_as_keys
+    @keys = set_num_values_as_keys
   end
 end
