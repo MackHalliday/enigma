@@ -4,8 +4,8 @@ class Key
 
   attr_reader :keys
 
-  def initialize()
-    @keys = {}
+  def initialize(keys = {})
+    @keys = keys
   end
 
   def random_num
@@ -26,9 +26,6 @@ class Key
   def set_num_values_as_keys
     keys = [:a, :b, :c, :d]
     key_hash = Hash[keys.zip join_pairs_nums_together]
-  end
-
-  def set_key_values
     @keys = set_num_values_as_keys
   end
 end
