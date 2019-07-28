@@ -6,6 +6,7 @@ require './lib/offset'
 require './lib/shift'
 require 'date'
 require 'pry'
+require './test/test_helper'
 
 class EnigmaTest < MiniTest::Test
 

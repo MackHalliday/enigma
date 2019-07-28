@@ -4,6 +4,7 @@ require './lib/enigma'
 require './lib/offset'
 require 'pry'
 require 'mocha/minitest'
+require './test/test_helper'
 
 class OffsetTest < MiniTest::Test
 

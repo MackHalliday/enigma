@@ -3,6 +3,7 @@ require 'minitest/pride'
 require './lib/key'
 require 'pry'
 require 'mocha/minitest'
+require './test/test_helper'
 
 class KeyTest < MiniTest::Test
 

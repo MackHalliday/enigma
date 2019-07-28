@@ -5,6 +5,7 @@ require './lib/shift'
 require './lib/key'
 require 'mocha/minitest'
 require 'pry'
+require './test/test_helper'
 
 
 class ShiftTest < MiniTest::Test
