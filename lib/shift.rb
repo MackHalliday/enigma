@@ -8,6 +8,8 @@ class Shift
     @message = message
     @key_hash = key_hash
     @offset_hash = offset_hash
+    @characters = ('a'..'z').to_a << ' '
+
   end
 
   def join_hashes
@@ -20,17 +22,16 @@ class Shift
   end
 
   def parse_message
-    message = @message.split(//).to_enum
+    message = "Hello"
+    characters = ('a'..'z').to_a << ' '
+    a_shift = 1
 
-    test = message.with_index {|value, index| [value]}
-#     a=[11,22,31,224,44].to_enum
-# => [11, 22, 31, 224, 44]
-# a.with_index { |val,index| puts "index: #{index} for #{val}" }
-# index: 0 for 11
-# index: 1 for 22
-# index: 2 for 31
-# index: 3 for 224
-# index: 4 for 44
-  test
+    non_caps = Hash[characters.zip(characters.rotate(a_shift))]
+
+    a_values = ["a", "b", "c"]
+
+    a_values.map do |value|
+      value = non_caps[value]
+    end 
   end
 end
