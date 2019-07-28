@@ -22,8 +22,7 @@ class ShiftTest < MiniTest::Test
 
   def test_it_has_attributes
     offset_value = {:a=>"6", :b=>"9", :c=>"6", :d=>"1"}
-    #@offset_1.set_key_values
-
+  
     assert_equal offset_value, @shift_1.offset
   end
 end
