@@ -9,4 +9,15 @@ class Shift
     @key_hash = key_hash
     @offset_hash = offset_hash
   end
+
+  def join_hashes
+    final_key = Hash.new
+
+    @key_hash.map do |key, value|
+      final_key[key] = @key_hash[key].to_i + @offset_hash[key].to_i
+    end
+    final_key
+  end
+
+  def 
 end

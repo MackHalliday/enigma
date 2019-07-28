@@ -10,9 +10,8 @@ require 'pry'
 class ShiftTest < MiniTest::Test
 
   def setup
-    @shift_1 = Shift.new
-    @offset_1 = Offset.new
-    Offset.any_instance.stubs(:todays_date).returns("260719")
+    @shift_1 = Shift.new("hello world", {:a=>"02", :b=>"27", :c=>"71", :d=>"15"}, {:a=>"1", :b=>"0", :c=>"2", :d=>"5"})
+
   end
 
   def test_it_exist
@@ -21,9 +20,23 @@ class ShiftTest < MiniTest::Test
   end
 
   def test_it_has_attributes
-    offset_value = {:a=>"6", :b=>"9", :c=>"6", :d=>"1"}
-    #@offset_1.set_key_values
 
-    assert_equal offset_value, @shift_1.offset
+    key_value = {:a=>"02", :b=>"27", :c=>"71", :d=>"15"}
+    offset_value = {:a=>"1", :b=>"0", :c=>"2", :d=>"5"}
+
+    assert_equal "hello world", @shift_1.message
+    assert_equal key_value, @shift_1.key_hash
+    assert_equal offset_value, @shift_1.offset_hash
   end
+
+  def test_it_can_join_hashes
+    expected = {:a=>03, :b=>27, :c=>73, :d=>20}
+
+    assert_equal expected, @shift_1.join_hashes
+  end
+
+  def test_it_can_parse_message
+
+
+    assert_equal expected, @shift.parse_message
 end
