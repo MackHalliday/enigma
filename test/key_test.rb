@@ -20,7 +20,7 @@ class KeyTest < MiniTest::Test
   end
 
   def test_attributes_of_key
-
+    skip
     @key_not_given.stubs(:key).returns("01221")
 
     assert_equal "00234", @key_given.key
@@ -28,6 +28,8 @@ class KeyTest < MiniTest::Test
   end
 
   def test_it_can_create_pairs
+    skip
+
     #@key_not_given.stubs(:key).returns("01221")
 
     expected_1 = [["0", "0"], ["0", "2"], ["2", "3"], ["3", "4"]]
