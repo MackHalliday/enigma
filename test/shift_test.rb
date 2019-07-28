@@ -37,6 +37,7 @@ class ShiftTest < MiniTest::Test
 
   def test_it_can_parse_message
 
-
-    assert_equal expected, @shift.parse_message
+    expected = nil
+    assert_equal expected, @shift_1.parse_message
+  end
 end

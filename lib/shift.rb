@@ -19,5 +19,14 @@ class Shift
     final_key
   end
 
-  def 
+  def parse_message
+    things = []
+    message = @message.split(//)
+
+    message.each do |char|
+      if index(char) % 1 == 0
+        things << char
+      end
+    end
+  end
 end
