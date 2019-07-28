@@ -9,8 +9,11 @@ class Enigma
 
   def encrypt(message, key, date)
     key = Key.new(key)
-    key.set
-    offset = Offset.new(date)
+    key_hash = key.get_key_values
+
+    offset_1 = Offset.new(date)
+    offset_hash = key.get_key_values
+    shift = Shift.new(message, key_hash, offset_hash)
 
   end
 
