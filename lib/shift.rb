@@ -20,13 +20,17 @@ class Shift
   end
 
   def parse_message
-    things = []
-    message = @message.split(//)
+    message = @message.split(//).to_enum
 
-    message.each do |char|
-      if index(char) % 1 == 0
-        things << char
-      end
-    end
+    test = message.with_index {|value, index| [value]}
+#     a=[11,22,31,224,44].to_enum
+# => [11, 22, 31, 224, 44]
+# a.with_index { |val,index| puts "index: #{index} for #{val}" }
+# index: 0 for 11
+# index: 1 for 22
+# index: 2 for 31
+# index: 3 for 224
+# index: 4 for 44
+  test
   end
 end
