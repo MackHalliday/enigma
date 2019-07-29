@@ -1,37 +1,55 @@
-
-##### General design for shifting letters for encryption **
 message = "letter"
 characters = ('a'..'z').to_a << ' '
 
 a_shift = 1
 b_shift = 2
+key_shift = {:a=>01, :b=>02}
 
-a_shifts = Hash[characters.zip(characters.rotate(a_shift))]
+key_shift_letters = [:a, :b]
+key_shift_values = Hash.new
 
-b_shifts = Hash[characters.zip(characters.rotate(b_shift))]
+key_shift_letters.each do |key|
+key_shift_values[key] = Hash[characters.zip(characters.rotate(key_shift[key].to_i))]
+end
+key_shift_values
 
-a_values = []
-b_values = []
+
+parse_message = {a: [],
+                b: []
+                }
 
 
 message.split(//).each.with_index do |char, index|
   if index % 2 == 0
-    a_values << char
+    parse_message[:a].push(char)
   else
-    b_values << char
+    parse_message[:b].push(char)
   end
 end
 
-a_values
-b_values
+parse_message
 
+ hash_new = Hash.new
 
-a_final = a_values.map do |value|
-  value = a_shifts[value]
+parse_message.map do |key, letters|
+  hash_new[key] = letters.map do |letter|
+    letter = key_shift_values[key][letter]
+  end
 end
 
-b_final = b_values.map do |value|
-  value = b_shifts[value]
-end
+ hash_new
 
-a_final.zip(b_final).flatten.join
+ hash_new[:a].zip(hash_new[:b]).flatten.join
+
+
+
+
+# a_final = a_values.map do |value|
+#   value = a_shifts[value]
+# end
+
+# b_final = b_values.map do |value|
+#   value = b_shifts[value]
+# end
+
+# a_final.zip(b_final).flatten.join

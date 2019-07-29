@@ -22,6 +22,6 @@ class Shift
   end
 
   def parse_message
-  
+
   end
 end

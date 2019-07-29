@@ -38,10 +38,16 @@ class ShiftTest < MiniTest::Test
 
   def test_it_can_parse_message
     # skip
-     a_chars = ["h", "o", "r"]
-     b_chars = ["e", " ", "d"]
-     c_chars = ["l", "w",]
-     d_chars = ["l", "o"]
+     expected = { a_chars => ["h", "o", "r"],
+                  b_chars => ["e", " ", "l"],
+                  c_chars => ["l", "w", "d"],
+                  d_chars => ["l", "o"]}
+
     assert_equal expected, @shift_1.parse_message
   end
+
+  def test_it_can_create_new_values_for_keys
+    expected = { a_final => []
+
+
 end
