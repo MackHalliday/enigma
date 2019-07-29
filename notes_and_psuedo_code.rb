@@ -1,10 +1,11 @@
 message = "letter"
 characters = ('a'..'z').to_a << ' '
 
-a_shift = 1
-b_shift = 2
+#1. Create final shift key by joining key and offset values
 key_shift = {:a=>01, :b=>02}
 
+
+#2. Create hash with shifted chars values for each key
 key_shift_letters = [:a, :b]
 key_shift_values = Hash.new
 
@@ -14,6 +15,7 @@ end
 key_shift_values
 
 
+# 3. Create hash with letters to be used for each key shift
 parse_message = {a: [],
                 b: []
                 }
@@ -29,6 +31,8 @@ end
 
 parse_message
 
+# Shift letters according to their keys shift values
+
  hash_new = Hash.new
 
 parse_message.map do |key, letters|
@@ -39,17 +43,6 @@ end
 
  hash_new
 
+ #Merge hash values and return encrypted string
+
  hash_new[:a].zip(hash_new[:b]).flatten.join
-
-
-
-
-# a_final = a_values.map do |value|
-#   value = a_shifts[value]
-# end
-
-# b_final = b_values.map do |value|
-#   value = b_shifts[value]
-# end
-
-# a_final.zip(b_final).flatten.join
