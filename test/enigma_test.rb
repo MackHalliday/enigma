@@ -10,10 +10,6 @@ require './test/test_helper'
 
 class EnigmaTest < MiniTest::Test
 
-  def setup
-
-  end
-
   def test_it_exist
     enigma = Enigma.new
 
