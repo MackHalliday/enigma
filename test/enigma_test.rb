@@ -1,11 +1,3 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/enigma'
-require './lib/key'
-require './lib/offset'
-require './lib/shift'
-require 'date'
-require 'pry'
 require './test/test_helper'
 
 class EnigmaTest < MiniTest::Test
