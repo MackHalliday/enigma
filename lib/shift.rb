@@ -32,6 +32,6 @@ class Shift
 
     a_values.map do |value|
       value = non_caps[value]
-    end 
+    end
   end
 end
