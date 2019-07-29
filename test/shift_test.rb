@@ -24,30 +24,16 @@ class ShiftTest < MiniTest::Test
 
     key_value = {:a=>"02", :b=>"27", :c=>"71", :d=>"15"}
     offset_value = {:a=>"1", :b=>"0", :c=>"2", :d=>"5"}
+    message = ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
 
-    assert_equal "hello world", @shift_1.message
-    assert_equal key_value, @shift_1.key_hash
-    assert_equal offset_value, @shift_1.offset_hash
+    assert_equal message, @shift_1.message
+    assert_equal key_value, @shift_1.key_values
+    assert_equal offset_value, @shift_1.offset_values
   end
 
-  def test_it_can_join_hashes
+  def test_it_can_create_final_key
     expected = {:a=>03, :b=>27, :c=>73, :d=>20}
 
-    assert_equal expected, @shift_1.join_hashes
+    assert_equal expected, @shift_1.create_final_key
   end
-
-  def test_it_can_parse_message
-    # skip
-     expected = { a_chars => ["h", "o", "r"],
-                  b_chars => ["e", " ", "l"],
-                  c_chars => ["l", "w", "d"],
-                  d_chars => ["l", "o"]}
-
-    assert_equal expected, @shift_1.parse_message
-  end
-
-  def test_it_can_create_new_values_for_keys
-    expected = { a_final => []
-
-
 end

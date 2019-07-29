@@ -1,27 +1,26 @@
 require 'pry'
 
 class Shift
-  attr_reader :message, :key_hash, :offset_hash
+  attr_reader :message, :key_values, :offset_values
 
 
-  def initialize(message, key_hash, offset_hash)
-    @message = message
-    @key_hash = key_hash
-    @offset_hash = offset_hash
+  def initialize(message, key_values, offset_values)
+    @message = message.split(//)
+    @key_values = key_values
+    @offset_values = offset_values
     @characters = ('a'..'z').to_a << ' '
 
   end
 
-  def join_hashes
-    final_key = Hash.new
-
-    @key_hash.map do |key, value|
-      final_key[key] = @key_hash[key].to_i + @offset_hash[key].to_i
+  def create_final_key
+    final_key_values = Hash.new
+    @key_values.map do |key, value|
+      final_key_values[key] = @key_values[key].to_i + @offset_values[key].to_i
     end
-    final_key
+   final_key_values
   end
 
-  def parse_message
+  def assign_key_letters
 
   end
 end
