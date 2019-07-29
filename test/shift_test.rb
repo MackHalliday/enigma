@@ -58,12 +58,18 @@ class ShiftTest < MiniTest::Test
   end
 
   def test_it_can_shift_letter_according_to_keys_shift_values
-    skip
-    expected = {:a => [],
-                :b => [],
-                :c => [],
-                :d => []
+    # skip
+    expected = {:a=>["k", "r", "u"],
+                :b=>["e", " ", "l"],
+                :c=>["d", "o", "w"],
+                :d=>["e", "h"]
                 }
-    
+    assert_equal expected, @shift_1.shift_letters_by_final_key
+  end
+
+  def test_can_return_encrypted_message
+    # skip
+
+    assert_equal "keder ohulw", @shift_1.encrypted_message
   end
 end

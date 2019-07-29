@@ -6,11 +6,13 @@ class Key
 
   def initialize(key = random_num)
     @key = key
+    @key_categories = [:a, :b, :c, :d]
   end
 
 
   def random_num
     random_digits = []
+
     5.times do random_digits << rand(0..9).to_s
     end
     @key = random_digits.join
@@ -25,7 +27,6 @@ class Key
   end
 
   def get_key_values
-    keys = [:a, :b, :c, :d]
-    key_hash = Hash[keys.zip join_pairs]
+    key_hash = Hash[@key_categories.zip join_pairs]
   end
 end

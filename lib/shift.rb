@@ -21,16 +21,12 @@ class Shift
    final_key_values
   end
 
-  def return_key(num)
-
-
-  end
 
   def assign_key_letters
     new_hash = Hash.new{|hash, key| hash[key] = [] }
 
     message.each.with_index do |char, index|
-      new_hash[@key_categories[index % 4]] << char
+      new_hash[@key_categories[index % @key_categories.count]] << char
     end
     new_hash
   end
@@ -44,4 +40,22 @@ class Shift
     end
     key_shift_values
   end
+
+  def shift_letters_by_final_key
+    shifted_letters_by_final_key = Hash.new
+
+     assign_key_letters.map do |key, letters|
+       shifted_letters_by_final_key[key] = letters.map do |letter|
+         letter = map_new_letter_values[key][letter]
+       end
+     end
+    shifted_letters_by_final_key
+  end
+
+  def encrypted_message
+    message = []
+
+    shift_letters_by_final_key.values.count
+  end
+
 end
