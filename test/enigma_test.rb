@@ -15,13 +15,12 @@ class EnigmaTest < MiniTest::Test
   end
 
   def test_it_exist
-      enigma = Enigma.new
+    enigma = Enigma.new
 
     assert_instance_of Enigma, enigma
   end
 
   def test_encryption_with_key_and_date
-    # skip
     enigma = Enigma.new
 
     expected = {
@@ -34,8 +33,8 @@ class EnigmaTest < MiniTest::Test
   end
 
   def test_decryption_with_key_and_date
-    # skip
     enigma = Enigma.new
+
     expected = {
         decryption: "hello world",
         key: "02715",

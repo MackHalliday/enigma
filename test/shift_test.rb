@@ -21,7 +21,6 @@ class ShiftTest < MiniTest::Test
   end
 
   def test_it_has_attributes
-
     key_value = {:a=>"02", :b=>"27", :c=>"71", :d=>"15"}
     offset_value = {:a=>"1", :b=>"0", :c=>"2", :d=>"5"}
     message = ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
@@ -38,7 +37,6 @@ class ShiftTest < MiniTest::Test
   end
 
   def test_it_can_assign_key_letters
-
     expected = {:a => ["h", "o", "r"],
                 :b => ["e", " ", "l"],
                 :c => ["l", "w", "d"],
@@ -49,7 +47,7 @@ class ShiftTest < MiniTest::Test
   end
 
   def test_it_can_map_new_letter_values_by_key
-  expected = {:a=>{"a"=>"d", "b"=>"e", "c"=>"f", "d"=>"g", "e"=>"h", "f"=>"i", "g"=>"j", "h"=>"k", "i"=>"l", "j"=>"m", "k"=>"n", "l"=>"o", "m"=>"p", "n"=>"q", "o"=>"r", "p"=>"s", "q"=>"t", "r"=>"u", "s"=>"v", "t"=>"w", "u"=>"x", "v"=>"y", "w"=>"z", "x"=>" ", "y"=>"a", "z"=>"b", " "=>"c"},
+    expected = {:a=>{"a"=>"d", "b"=>"e", "c"=>"f", "d"=>"g", "e"=>"h", "f"=>"i", "g"=>"j", "h"=>"k", "i"=>"l", "j"=>"m", "k"=>"n", "l"=>"o", "m"=>"p", "n"=>"q", "o"=>"r", "p"=>"s", "q"=>"t", "r"=>"u", "s"=>"v", "t"=>"w", "u"=>"x", "v"=>"y", "w"=>"z", "x"=>" ", "y"=>"a", "z"=>"b", " "=>"c"},
               :b=>{"a"=>"a", "b"=>"b", "c"=>"c", "d"=>"d", "e"=>"e", "f"=>"f", "g"=>"g", "h"=>"h", "i"=>"i", "j"=>"j", "k"=>"k", "l"=>"l", "m"=>"m", "n"=>"n", "o"=>"o", "p"=>"p", "q"=>"q", "r"=>"r", "s"=>"s", "t"=>"t", "u"=>"u", "v"=>"v", "w"=>"w", "x"=>"x", "y"=>"y", "z"=>"z", " "=>" "},
               :c=>{"a"=>"t", "b"=>"u", "c"=>"v", "d"=>"w", "e"=>"x", "f"=>"y", "g"=>"z", "h"=>" ", "i"=>"a", "j"=>"b", "k"=>"c", "l"=>"d", "m"=>"e", "n"=>"f", "o"=>"g", "p"=>"h", "q"=>"i","r"=>"j", "s"=>"k", "t"=>"l", "u"=>"m", "v"=>"n", "w"=>"o", "x"=>"p", "y"=>"q", "z"=>"r", " "=>"s"},
               :d=>{"a"=>"u", "b"=>"v", "c"=>"w", "d"=>"x", "e"=>"y", "f"=>"z", "g"=>" ", "h"=>"a", "i"=>"b", "j"=>"c", "k"=>"d", "l"=>"e", "m"=>"f", "n"=>"g", "o"=>"h", "p"=>"i", "q"=>"j", "r"=>"k", "s"=>"l", "t"=>"m", "u"=>"n", "v"=>"o", "w"=>"p", "x"=>"q", "y"=>"r", "z"=>"s", " "=>"t"}
@@ -58,7 +56,6 @@ class ShiftTest < MiniTest::Test
   end
 
   def test_it_can_shift_letter_according_to_keys_shift_values
-
     expected = {:a=>["k", "r", "u"],
                 :b=>["e", " ", "l"],
                 :c=>["d", "o", "w"],
@@ -82,5 +79,4 @@ class ShiftTest < MiniTest::Test
 
     assert_equal "hello world", @shift_2.decrypted_message
   end
-
 end

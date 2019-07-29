@@ -8,7 +8,6 @@ require './test/test_helper'
 class KeyTest < MiniTest::Test
 
   def setup
-
      @key_given = Key.new("00234")
      @key_not_given = Key.new
   end
@@ -17,7 +16,6 @@ class KeyTest < MiniTest::Test
 
     assert_instance_of Key, @key_given
     assert_instance_of Key, @key_not_given
-
   end
 
   def test_attributes_of_key
@@ -41,13 +39,12 @@ class KeyTest < MiniTest::Test
   end
 
   def test_it_can_join_pairs
-
     expected_1 = ["00", "02", "23", "34"]
+
     assert_equal expected_1, @key_given.join_pairs
   end
 
   def test_it_can_create_key_values
-
     expected_1 = {:a=>"00", :b=>"02", :c=>"23", :d=>"34"}
 
     assert_equal expected_1, @key_given.get_key_values
