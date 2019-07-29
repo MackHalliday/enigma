@@ -44,8 +44,8 @@ class Shift
 
   def shift_letters_by_final_key(encrypt_decrypt)
     shifted_letters_by_final_key = Hash.new
-
-     assign_message_keys.map do |key, letters|
+  
+    assign_message_keys.map do |key, letters|
        shifted_letters_by_final_key[key] = letters.map do |letter|
          letter = map_new_letter_values(encrypt_decrypt)[key][letter]
        end
