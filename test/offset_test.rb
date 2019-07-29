@@ -29,10 +29,10 @@ class OffsetTest < MiniTest::Test
     assert_equal 67974396961, offset_2.square_number
   end
   #
-  def test_can_return_last_four_digits
+  def test_can_return_last_digits
     offset_2 = Offset.new("260719")
 
-    assert_equal ["6", "9", "6", "1"], offset_2.last_four_digits
+    assert_equal ["6", "9", "6", "1"], offset_2.last_digits
   end
 
   def test_set_values_as_keys
