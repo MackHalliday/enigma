@@ -22,7 +22,7 @@ class Shift
   end
 
 
-  def assign_key_letters
+  def assign_message_keys
     new_hash = Hash.new{|hash, key| hash[key] = [] }
 
     message.each.with_index do |char, index|
@@ -45,7 +45,7 @@ class Shift
   def shift_letters_by_final_key(encrypt_or_decrypt)
     shifted_letters_by_final_key = Hash.new
 
-     assign_key_letters.map do |key, letters|
+     assign_message_keys.map do |key, letters|
        shifted_letters_by_final_key[key] = letters.map do |letter|
          letter = map_new_letter_values(encrypt_or_decrypt)[key][letter]
        end
@@ -53,12 +53,11 @@ class Shift
     shifted_letters_by_final_key
   end
 
-  def encrypted_message(encrypt_or_decrypt)
-    shift_letters_by_final_key(encrypt_or_decrypt).values.then { |f, *r| f.zip(*r) }.flatten.compact.join
-    #https://stackoverflow.com/questions/57247086/zip-all-array-values-of-hash
+  def encrypted_message
+    shift_letters_by_final_key(1).values.then { |f, *r| f.zip(*r) }.flatten.compact.join
   end
 
-  def decrypted_message(encrypt_or_decrypt)
-    shift_letters_by_final_key(encrypt_or_decrypt).values.then { |f, *r| f.zip(*r) }.flatten.compact.join
+  def decrypted_message
+    shift_letters_by_final_key(-1).values.then { |f, *r| f.zip(*r) }.flatten.compact.join
   end
 end

@@ -38,14 +38,14 @@ class ShiftTest < MiniTest::Test
   end
 
   def test_it_can_assign_key_letters
-    # skip
+
     expected = {:a => ["h", "o", "r"],
                 :b => ["e", " ", "l"],
                 :c => ["l", "w", "d"],
                 :d => ["l", "o"]
                 }
 
-    assert_equal expected, @shift_1.assign_key_letters
+    assert_equal expected, @shift_1.assign_message_keys
   end
 
   def test_it_can_map_new_letter_values_by_key
@@ -58,7 +58,7 @@ class ShiftTest < MiniTest::Test
   end
 
   def test_it_can_shift_letter_according_to_keys_shift_values
-    # skip
+
     expected = {:a=>["k", "r", "u"],
                 :b=>["e", " ", "l"],
                 :c=>["d", "o", "w"],
@@ -68,8 +68,8 @@ class ShiftTest < MiniTest::Test
   end
 
   def test_can_return_encrypted_message
-    # skip
-    assert_equal "keder ohulw", @shift_1.encrypted_message(1)
+
+    assert_equal "keder ohulw", @shift_1.encrypted_message
   end
 
   def test_can_rotate_key_letter_values_backwards_for_decryption
@@ -80,7 +80,7 @@ class ShiftTest < MiniTest::Test
 
   def test_can_return_decrypted_message
 
-    assert_equal "hello world", @shift_2.decrypted_message(-1)
+    assert_equal "hello world", @shift_2.decrypted_message
   end
 
 end
