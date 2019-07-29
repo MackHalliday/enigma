@@ -12,7 +12,7 @@ class ShiftTest < MiniTest::Test
 
   def setup
     @shift_1 = Shift.new("hello world", {:a=>"02", :b=>"27", :c=>"71", :d=>"15"}, {:a=>"1", :b=>"0", :c=>"2", :d=>"5"})
-
+    @shift_2 = Shift.new("keder ohulw", {:a=>"02", :b=>"27", :c=>"71", :d=>"15"}, {:a=>"1", :b=>"0", :c=>"2", :d=>"5"})
   end
 
   def test_it_exist
@@ -34,18 +34,18 @@ class ShiftTest < MiniTest::Test
   def test_it_can_create_final_key
     expected = {:a=>03, :b=>27, :c=>73, :d=>20}
 
-    assert_equal expected, @shift_1.create_final_key
+    assert_equal expected, @shift_1.create_final_key(1)
   end
 
   def test_it_can_assign_key_letters
-    # skip
+
     expected = {:a => ["h", "o", "r"],
                 :b => ["e", " ", "l"],
                 :c => ["l", "w", "d"],
                 :d => ["l", "o"]
                 }
 
-    assert_equal expected, @shift_1.assign_key_letters
+    assert_equal expected, @shift_1.assign_message_keys
   end
 
   def test_it_can_map_new_letter_values_by_key
@@ -54,22 +54,33 @@ class ShiftTest < MiniTest::Test
               :c=>{"a"=>"t", "b"=>"u", "c"=>"v", "d"=>"w", "e"=>"x", "f"=>"y", "g"=>"z", "h"=>" ", "i"=>"a", "j"=>"b", "k"=>"c", "l"=>"d", "m"=>"e", "n"=>"f", "o"=>"g", "p"=>"h", "q"=>"i","r"=>"j", "s"=>"k", "t"=>"l", "u"=>"m", "v"=>"n", "w"=>"o", "x"=>"p", "y"=>"q", "z"=>"r", " "=>"s"},
               :d=>{"a"=>"u", "b"=>"v", "c"=>"w", "d"=>"x", "e"=>"y", "f"=>"z", "g"=>" ", "h"=>"a", "i"=>"b", "j"=>"c", "k"=>"d", "l"=>"e", "m"=>"f", "n"=>"g", "o"=>"h", "p"=>"i", "q"=>"j", "r"=>"k", "s"=>"l", "t"=>"m", "u"=>"n", "v"=>"o", "w"=>"p", "x"=>"q", "y"=>"r", "z"=>"s", " "=>"t"}
               }
-    assert_equal expected, @shift_1.map_new_letter_values
+    assert_equal expected, @shift_1.map_new_letter_values(1)
   end
 
   def test_it_can_shift_letter_according_to_keys_shift_values
-    # skip
+
     expected = {:a=>["k", "r", "u"],
                 :b=>["e", " ", "l"],
                 :c=>["d", "o", "w"],
                 :d=>["e", "h"]
                 }
-    assert_equal expected, @shift_1.shift_letters_by_final_key
+    assert_equal expected, @shift_1.shift_letters_by_final_key(1)
   end
 
   def test_can_return_encrypted_message
-    # skip
 
     assert_equal "keder ohulw", @shift_1.encrypted_message
   end
+
+  def test_can_rotate_key_letter_values_backwards_for_decryption
+    expected = {:a=>-3, :b=>-27, :c=>-73, :d=>-20}
+
+    assert_equal expected, @shift_2.create_final_key(-1)
+  end
+
+  def test_can_return_decrypted_message
+
+    assert_equal "hello world", @shift_2.decrypted_message
+  end
+
 end
