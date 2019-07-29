@@ -21,7 +21,7 @@ class EnigmaTest < MiniTest::Test
   end
 
   def test_encryption_with_key_and_date
-    skip
+    # skip
     enigma = Enigma.new
 
     expected = {
