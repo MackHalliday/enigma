@@ -4,19 +4,24 @@ require 'date'
 
 class Enigma
 
-  def initialize
+  def encrypt(message, key, date = Time.now.strftime("%d%m%y"))
+    key_encrypt = Key.new(key)
+    offset_encrypt = Offset.new(date)
+    shift_encrypt = Shift.new(message, key_encrypt.get_key_values, offset_encrypt.get_key_values)
+
+        {encryption: encrypt_message = shift_encrypt.encrypted_message,
+        key: key,
+        date: date}
   end
 
-  def encrypt(message, key, date)
-    key = Key.new(key)
-    key_hash = key.get_key_values
+  def decrypt(message, key, date = Time.now.strftime("%d%m%y"))
+    key_decrypt = Key.new(key)
+    offset_decrypt = Offset.new(date)
+    shift_decrypt = Shift.new(message, key_decrypt.get_key_values, offset_decrypt.get_key_values)
 
-    offset = Offset.new(date)
-    offset_hash = offset.get_key_values
-
-    shift = Shift.new(message, key_hash, offset_hash)
-
-    #shift.decode_message
+        {encryption: decrypt_message = shift_decrypt.decrypted_message,
+        key: key,
+        date: date}
   end
 
 end
