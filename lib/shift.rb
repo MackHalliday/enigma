@@ -8,6 +8,8 @@ class Shift
     @message = message
     @key_hash = key_hash
     @offset_hash = offset_hash
+    @characters = ('a'..'z').to_a << ' '
+
   end
 
   def join_hashes
@@ -20,13 +22,16 @@ class Shift
   end
 
   def parse_message
-    things = []
-    message = @message.split(//)
+    message = "Hello"
+    characters = ('a'..'z').to_a << ' '
+    a_shift = 1
 
-    message.each do |char|
-      if index(char) % 1 == 0
-        things << char
-      end
-    end
+    non_caps = Hash[characters.zip(characters.rotate(a_shift))]
+
+    a_values = ["a", "b", "c"]
+
+    a_values.map do |value|
+      value = non_caps[value]
+    end 
   end
 end

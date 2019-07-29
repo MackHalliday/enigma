@@ -37,8 +37,11 @@ class ShiftTest < MiniTest::Test
   end
 
   def test_it_can_parse_message
-    skip
-    expected = nil
+    # skip
+     a_chars = ["h", "o", "r"]
+     b_chars = ["e", " ", "d"]
+     c_chars = ["l", "w",]
+     d_chars = ["l", "o"]
     assert_equal expected, @shift_1.parse_message
   end
 end
