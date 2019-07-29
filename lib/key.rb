@@ -9,11 +9,9 @@ class Key
     @key_categories = [:a, :b, :c, :d]
   end
 
-
   def random_num
     random_digits = []
-
-    5.times do random_digits << rand(0..9).to_s
+      5.times do random_digits << rand(0..9).to_s
     end
     @key = random_digits.join
   end

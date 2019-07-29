@@ -37,7 +37,6 @@ class OffsetTest < MiniTest::Test
 
   def test_set_values_as_keys
     offset_2 = Offset.new("260719")
-
     expected = {:a=>"6", :b=>"9", :c=>"6", :d=>"1"}
 
     assert_equal expected, offset_2.get_key_values

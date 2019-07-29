@@ -14,37 +14,30 @@ class Shift
 
   def create_final_key(encrypt_decrypt)
     final_key_values = Hash.new
-
     @key_values.map do |key, value|
       final_key_values[key] = (@key_values[key].to_i + @offset_values[key].to_i) * (encrypt_decrypt)
     end
    final_key_values
   end
 
-
   def assign_message_keys
     new_hash = Hash.new{|hash, key| hash[key] = [] }
-
     message.each.with_index do |char, index|
       new_hash[@key_categories[index % @key_categories.count]] << char
     end
     new_hash
   end
 
-
   def map_new_letter_values(encrypt_decrypt)
     key_shift_values = Hash.new
-
     @key_categories.each do |key|
-    key_shift_values[key] = Hash[@characters.zip(@characters.rotate(create_final_key(encrypt_decrypt)[key].to_i))]
+      key_shift_values[key] = Hash[@characters.zip(@characters.rotate(create_final_key(encrypt_decrypt)[key].to_i))]
     end
     key_shift_values
   end
 
-
   def shift_letters_by_final_key(encrypt_decrypt)
     shifted_letters_by_final_key = Hash.new
-  
     assign_message_keys.map do |key, letters|
        shifted_letters_by_final_key[key] = letters.map do |letter|
          letter = map_new_letter_values(encrypt_decrypt)[key][letter]

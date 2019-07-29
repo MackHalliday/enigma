@@ -10,10 +10,6 @@ class Offset
     @key_categories = [:a, :b, :c, :d]
   end
 
-  # def todays_date
-  #   Time.now.strftime("%d%m%y")
-  # end
-
   def square_number
     @date.to_i ** 2
   end
@@ -23,7 +19,6 @@ class Offset
   end
 
   def get_key_values
-
     key_hash = Hash[@key_categories.zip last_digits]
   end
 end
