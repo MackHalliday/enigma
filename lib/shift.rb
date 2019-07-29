@@ -22,16 +22,6 @@ class Shift
   end
 
   def parse_message
-    message = "Hello"
-    characters = ('a'..'z').to_a << ' '
-    a_shift = 1
-
-    non_caps = Hash[characters.zip(characters.rotate(a_shift))]
-
-    a_values = ["a", "b", "c"]
-
-    a_values.map do |value|
-      value = non_caps[value]
-    end 
+  
   end
 end
