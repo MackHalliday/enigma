@@ -22,13 +22,13 @@ class OffsetTest < MiniTest::Test
 
     assert_equal "260719", @offset_1.todays_date
   end
-  #
+
   def test_it_can_square_number
     offset_2 = Offset.new("260719")
 
     assert_equal 67974396961, offset_2.square_number
   end
-  #
+
   def test_can_return_last_digits
     offset_2 = Offset.new("260719")
 
