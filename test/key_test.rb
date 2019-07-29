@@ -14,7 +14,7 @@ class KeyTest < MiniTest::Test
   end
 
   def test_attributes_of_key
-    skip
+    # skip
     @key_not_given.stubs(:key).returns("01221")
 
     assert_equal "00234", @key_given.key
