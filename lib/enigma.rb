@@ -19,7 +19,7 @@ class Enigma
     offset_decrypt = Offset.new(date)
     shift_decrypt = Shift.new(message, key_decrypt.get_key_values, offset_decrypt.get_key_values)
 
-        {encryption: decrypt_message = shift_decrypt.decrypted_message,
+        {decryption: decrypt_message = shift_decrypt.decrypted_message,
         key: key,
         date: date}
   end
