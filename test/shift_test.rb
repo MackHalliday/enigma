@@ -66,7 +66,7 @@ class ShiftTest < MiniTest::Test
 
   def test_can_return_encrypted_message
 
-    assert_equal "keder ohulw", @shift_1.encrypted_message
+    assert_equal "keder ohulw", @shift_1.shift_message(1)
   end
 
   def test_can_rotate_key_letter_values_backwards_for_decryption
@@ -77,6 +77,6 @@ class ShiftTest < MiniTest::Test
 
   def test_can_return_decrypted_message
 
-    assert_equal "hello world", @shift_2.decrypted_message
+    assert_equal "hello world", @shift_2.shift_message(-1)
   end
 end
