@@ -36,4 +36,34 @@ class ShiftTest < MiniTest::Test
 
     assert_equal expected, @shift_1.create_final_key
   end
+
+  def test_it_can_assign_key_letters
+    # skip
+    expected = {:a => ["h", "o", "r"],
+                :b => ["e", " ", "l"],
+                :c => ["l", "w", "d"],
+                :d => ["l", "o"]
+                }
+
+    assert_equal expected, @shift_1.assign_key_letters
+  end
+
+  def test_it_can_map_new_letter_values_by_key
+  expected = {:a=>{"a"=>"d", "b"=>"e", "c"=>"f", "d"=>"g", "e"=>"h", "f"=>"i", "g"=>"j", "h"=>"k", "i"=>"l", "j"=>"m", "k"=>"n", "l"=>"o", "m"=>"p", "n"=>"q", "o"=>"r", "p"=>"s", "q"=>"t", "r"=>"u", "s"=>"v", "t"=>"w", "u"=>"x", "v"=>"y", "w"=>"z", "x"=>" ", "y"=>"a", "z"=>"b", " "=>"c"},
+              :b=>{"a"=>"a", "b"=>"b", "c"=>"c", "d"=>"d", "e"=>"e", "f"=>"f", "g"=>"g", "h"=>"h", "i"=>"i", "j"=>"j", "k"=>"k", "l"=>"l", "m"=>"m", "n"=>"n", "o"=>"o", "p"=>"p", "q"=>"q", "r"=>"r", "s"=>"s", "t"=>"t", "u"=>"u", "v"=>"v", "w"=>"w", "x"=>"x", "y"=>"y", "z"=>"z", " "=>" "},
+              :c=>{"a"=>"t", "b"=>"u", "c"=>"v", "d"=>"w", "e"=>"x", "f"=>"y", "g"=>"z", "h"=>" ", "i"=>"a", "j"=>"b", "k"=>"c", "l"=>"d", "m"=>"e", "n"=>"f", "o"=>"g", "p"=>"h", "q"=>"i","r"=>"j", "s"=>"k", "t"=>"l", "u"=>"m", "v"=>"n", "w"=>"o", "x"=>"p", "y"=>"q", "z"=>"r", " "=>"s"},
+              :d=>{"a"=>"u", "b"=>"v", "c"=>"w", "d"=>"x", "e"=>"y", "f"=>"z", "g"=>" ", "h"=>"a", "i"=>"b", "j"=>"c", "k"=>"d", "l"=>"e", "m"=>"f", "n"=>"g", "o"=>"h", "p"=>"i", "q"=>"j", "r"=>"k", "s"=>"l", "t"=>"m", "u"=>"n", "v"=>"o", "w"=>"p", "x"=>"q", "y"=>"r", "z"=>"s", " "=>"t"}
+              }
+    assert_equal expected, @shift_1.map_new_letter_values
+  end
+
+  def test_it_can_shift_letter_according_to_keys_shift_values
+    skip
+    expected = {:a => [],
+                :b => [],
+                :c => [],
+                :d => []
+                }
+    
+  end
 end
