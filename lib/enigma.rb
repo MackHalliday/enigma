@@ -8,15 +8,21 @@ class Enigma
   end
 
   def encrypt(message, key, date)
-    key = Key.new(key)
-    key_hash = key.get_key_values
-  
-    offset = Offset.new(date)
-    offset_hash = offset.get_key_values
+    key_1 = Key.new(key)
+    key_hash = key_1.get_key_values
+
+    offset_1 = Offset.new(date)
+    offset_hash = offset_1.get_key_values
 
     shift = Shift.new(message, key_hash, offset_hash)
 
-    shift.encrypted_message
+    encrypt_message = shift.encrypted_message
+
+    {
+          encryption: encrypt_message = shift.encrypted_message,
+          key: key,
+          date: date,
+            }
   end
 
 end
