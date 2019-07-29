@@ -53,9 +53,9 @@ class Shift
   end
 
   def encrypted_message
-    message = []
 
-    shift_letters_by_final_key.values.count
+    shift_letters_by_final_key.values.then { |f, *r| f.zip(*r) }.flatten.compact.join
+    #https://stackoverflow.com/questions/57247086/zip-all-array-values-of-hash
   end
 
 end
