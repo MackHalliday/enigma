@@ -3,16 +3,16 @@ require 'date'
 
 class Offset
 
-  attr_reader :keys
+  attr_reader :keys, :date
 
-  def initialize(date = todays_date)
+  def initialize(date)
     @date = date
     @key_categories = [:a, :b, :c, :d]
   end
 
-  def todays_date
-    Time.now.strftime("%d%m%y")
-  end
+  # def todays_date
+  #   Time.now.strftime("%d%m%y")
+  # end
 
   def square_number
     @date.to_i ** 2
