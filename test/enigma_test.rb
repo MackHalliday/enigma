@@ -50,6 +50,7 @@ class EnigmaTest < MiniTest::Test
 
     enigma = Enigma.new
     Time.any_instance.stubs(:strftime).returns("040895")
+
     expected = {
           decryption: "hello world",
           key: "02715",
@@ -63,7 +64,7 @@ class EnigmaTest < MiniTest::Test
     # skip
     enigma = Enigma.new
     Time.any_instance.stubs(:strftime).returns("040895")
-    Key.any_instance.stubs(:key).returns("02715")
+    Enigma.any_instance.stubs(:random_num).returns("02715")
 
     expected = {
           encryption: "keder ohulw",
