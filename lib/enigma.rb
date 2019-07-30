@@ -4,7 +4,14 @@ require 'date'
 
 class Enigma
 
-  def encrypt(message, key, date = Time.now.strftime("%d%m%y"))
+  def random_num
+    random_digits = []
+      5.times do random_digits << rand(0..9).to_s
+    end
+    key = random_digits.join
+  end
+
+  def encrypt(message, key = random_num, date = Time.now.strftime("%d%m%y"))
     key_encrypt = Key.new(key)
     offset_encrypt = Offset.new(date)
     shift_encrypt = Shift.new(message, key_encrypt.get_key_values, offset_encrypt.get_key_values)
