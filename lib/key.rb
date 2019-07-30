@@ -2,18 +2,11 @@ require 'pry'
 
 class Key
 
-  attr_reader :key
+  attr_accessor :key
 
-  def initialize(key = random_num)
+  def initialize(key)
     @key = key
     @key_categories = [:a, :b, :c, :d]
-  end
-
-  def random_num
-    random_digits = []
-      5.times do random_digits << rand(0..9).to_s
-    end
-    @key = random_digits.join
   end
 
   def create_pairs
@@ -25,6 +18,6 @@ class Key
   end
 
   def get_key_values
-    key_hash = Hash[@key_categories.zip join_pairs]
+    Hash[@key_categories.zip join_pairs]
   end
 end
