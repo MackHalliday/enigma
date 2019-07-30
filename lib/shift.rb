@@ -47,6 +47,6 @@ class Shift
   end
 
   def shift_message(encrypt_decrypt)
-    shift_letters_by_final_key(encrypt_decrypt).values.then { |f, *r| f.zip(*r) }.flatten.compact.join
+    shift_letters_by_final_key(encrypt_decrypt).values.then { |first, *rest| first.zip(*rest) }.flatten.compact.join
   end
 end
