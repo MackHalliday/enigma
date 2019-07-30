@@ -6,6 +6,7 @@ class ShiftTest < MiniTest::Test
   def setup
     @shift_1 = Shift.new("hello world", {:a=>"02", :b=>"27", :c=>"71", :d=>"15"}, {:a=>"1", :b=>"0", :c=>"2", :d=>"5"})
     @shift_2 = Shift.new("keder ohulw", {:a=>"02", :b=>"27", :c=>"71", :d=>"15"}, {:a=>"1", :b=>"0", :c=>"2", :d=>"5"})
+    @shift_3 = Shift.new("hello world", {:a=>"02", :b=>"27", :c=>"71", :d=>"15"}, {:a=>"1", :b=>"0", :c=>"2", :d=>"5"})
   end
 
   def test_it_exist
@@ -71,5 +72,10 @@ class ShiftTest < MiniTest::Test
   def test_can_return_decrypted_message
 
     assert_equal "hello world", @shift_2.shift_message(-1)
+  end
+
+  def test_can_encrypt_message_with_special_characters
+
+    assert_equal "keder ohulw", @shift_3.shift_message(1)
   end
 end

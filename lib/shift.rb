@@ -10,6 +10,7 @@ class Shift
     @offset_values = offset_values
     @characters = ('a'..'z').to_a << ' '
     @key_categories = [:a, :b, :c, :d]
+    @special_chars = {}
   end
 
   def create_final_key(encrypt_decrypt)
@@ -23,8 +24,8 @@ class Shift
   def assign_message_keys
     new_hash = Hash.new{|hash, key| hash[key] = [] }
     message.each.with_index do |char, index|
-      new_hash[@key_categories[index % @key_categories.count]] << char
-    end
+        new_hash[@key_categories[index % @key_categories.count]] << char
+      end
     new_hash
   end
 
