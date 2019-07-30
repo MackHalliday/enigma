@@ -1,20 +1,9 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/enigma'
-require './lib/key'
-require './lib/offset'
-require './lib/shift'
-require 'date'
-require 'pry'
+require './test/test_helper'
 
 class EnigmaTest < MiniTest::Test
 
-  def setup
-
-  end
-
   def test_it_exist
-      enigma = Enigma.new
+    enigma = Enigma.new
 
     assert_instance_of Enigma, enigma
   end
@@ -32,15 +21,15 @@ class EnigmaTest < MiniTest::Test
   end
 
   def test_decryption_with_key_and_date
-    skip
     enigma = Enigma.new
+
     expected = {
         decryption: "hello world",
         key: "02715",
         date: "040895"
         }
 
-    assert_equal expected, @enigma.decrypt("keder ohulw", "02715", "040895")
+    assert_equal expected, enigma.decrypt("keder ohulw", "02715", "040895")
   end
 
   def test_encryption_with_key_and_todays_date
