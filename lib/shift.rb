@@ -10,7 +10,6 @@ class Shift
     @offset_values = offset_values
     @characters = ('a'..'z').to_a << ' '
     @key_categories = [:a, :b, :c, :d]
-    @special_chars = {}
   end
 
   def create_final_key(encrypt_decrypt)
@@ -38,11 +37,15 @@ class Shift
   end
 
   def shift_letters_by_final_key(encrypt_decrypt)
-    shifted_letters_by_final_key = Hash.new
+    shifted_letters_by_final_key = Hash.new{|hash, key| hash[key] = [] }
     assign_message_keys.map do |key, letters|
-       shifted_letters_by_final_key[key] = letters.map do |letter|
-         letter = map_new_letter_values(encrypt_decrypt)[key][letter]
-       end
+      letters.map do |letter|
+        if @characters.include?(letter) == false
+          shifted_letters_by_final_key[key] << letter
+        else
+          shifted_letters_by_final_key[key] << map_new_letter_values(encrypt_decrypt)[key][letter]
+        end
+      end
      end
     shifted_letters_by_final_key
   end

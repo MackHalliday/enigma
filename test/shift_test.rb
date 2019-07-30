@@ -6,7 +6,9 @@ class ShiftTest < MiniTest::Test
   def setup
     @shift_1 = Shift.new("hello world", {:a=>"02", :b=>"27", :c=>"71", :d=>"15"}, {:a=>"1", :b=>"0", :c=>"2", :d=>"5"})
     @shift_2 = Shift.new("keder ohulw", {:a=>"02", :b=>"27", :c=>"71", :d=>"15"}, {:a=>"1", :b=>"0", :c=>"2", :d=>"5"})
-    @shift_3 = Shift.new("hello world", {:a=>"02", :b=>"27", :c=>"71", :d=>"15"}, {:a=>"1", :b=>"0", :c=>"2", :d=>"5"})
+    @shift_3 = Shift.new("hello world!!!", {:a=>"02", :b=>"27", :c=>"71", :d=>"15"}, {:a=>"1", :b=>"0", :c=>"2", :d=>"5"})
+    @shift_4 = Shift.new("hello world#%*", {:a=>"02", :b=>"27", :c=>"71", :d=>"15"}, {:a=>"1", :b=>"0", :c=>"2", :d=>"5"})
+    @shift_5 = Shift.new("$ammy", {:a=>"00", :b=>"00", :c=>"00", :d=>"00"}, {:a=>"1", :b=>"0", :c=>"1", :d=>"1"})
   end
 
   def test_it_exist
@@ -76,6 +78,8 @@ class ShiftTest < MiniTest::Test
 
   def test_can_encrypt_message_with_special_characters
 
-    assert_equal "keder ohulw", @shift_3.shift_message(1)
+    assert_equal "keder ohulw!!!", @shift_3.shift_message(1)
+    assert_equal "keder ohulw#%*", @shift_4.shift_message(1)
+    assert_equal "$agoy", @shift_5.shift_message(1)
   end
 end
