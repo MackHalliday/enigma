@@ -10,13 +10,10 @@ class EnigmaTest < MiniTest::Test
 
   def test_create_random_num
     enigma = Enigma.new
-    Enigma.any_instance.stubs(:random_num).returns("00234")
 
-    enigma_2 = Enigma.new
-
-    assert_equal "00234", enigma.random_num
-    assert_equal 5, enigma_2.random_num.length
-    assert_instance_of String, enigma_2.random_num
+    assert_instance_of String, enigma.random_num
+    assert_equal 5, enigma.random_num.length
+    assert_instance_of Integer, enigma.random_num.to_i
   end
 
   def test_encryption_with_key_and_date
