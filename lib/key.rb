@@ -2,7 +2,7 @@ require 'pry'
 
 class Key
 
-  attr_reader :key
+  attr_accessor :key
 
   def initialize(key = random_num)
     @key = key
@@ -17,6 +17,9 @@ class Key
   end
 
   def create_pairs
+    # if @key = 1
+    #   random_num
+    # end
     @key.split(//).each_cons(2).to_a
   end
 

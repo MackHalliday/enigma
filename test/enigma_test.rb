@@ -64,6 +64,7 @@ class EnigmaTest < MiniTest::Test
     enigma = Enigma.new
     Time.any_instance.stubs(:strftime).returns("040895")
     Key.any_instance.stubs(:key).returns("02715")
+
     expected = {
           encryption: "keder ohulw",
           key: "02715",
