@@ -59,7 +59,7 @@ class ShiftTest < MiniTest::Test
                 :c=>["d", "o", "w"],
                 :d=>["e", "h"]
                 }
-    assert_equal expected, @shift_1.shift_letters_by_final_key(1)
+    assert_equal expected, @shift_1.shift_letters_by_key_cat(1)
   end
 
   def test_can_return_encrypted_message

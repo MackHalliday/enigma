@@ -3,13 +3,12 @@ require 'pry'
 class Shift
   attr_reader :message, :key_values, :offset_values
 
-
   def initialize(message, key_values, offset_values)
     @message = message.downcase.split(//)
     @key_values = key_values
     @offset_values = offset_values
-    @characters = ('a'..'z').to_a << ' '
-    @key_categories = [:a, :b, :c, :d]
+    @key_cats = [:a, :b, :c, :d]
+    @alphabet = ('a'..'z').to_a << ' '
   end
 
   def create_final_key(encrypt_decrypt)
@@ -21,36 +20,36 @@ class Shift
   end
 
   def assign_message_keys
-    new_hash = Hash.new{|hash, key| hash[key] = [] }
+    keys_with_letters = Hash.new{|hash, key| hash[key] = [] }
     message.each.with_index do |char, index|
-        new_hash[@key_categories[index % @key_categories.count]] << char
+        keys_with_letters[@key_cats[index % @key_cats.count]] << char
       end
-    new_hash
+    keys_with_letters
   end
 
   def map_new_letter_values(encrypt_decrypt)
     key_shift_values = Hash.new
-    @key_categories.each do |key|
-      key_shift_values[key] = Hash[@characters.zip(@characters.rotate(create_final_key(encrypt_decrypt)[key].to_i))]
+    @key_cats.each do |key|
+      key_shift_values[key] = Hash[@alphabet.zip(@alphabet.rotate(create_final_key(encrypt_decrypt)[key].to_i))]
     end
     key_shift_values
   end
 
-  def shift_letters_by_final_key(encrypt_decrypt)
-    shifted_letters_by_final_key = Hash.new{|hash, key| hash[key] = [] }
+  def shift_letters_by_key_cat(encrypt_decrypt)
+    shift_letters_by_key_cat = Hash.new{|hash, key| hash[key] = [] }
     assign_message_keys.map do |key, letters|
       letters.map do |letter|
         if !@characters.include?(letter)
           shifted_letters_by_final_key[key] << letter
         else
-          shifted_letters_by_final_key[key] << map_new_letter_values(encrypt_decrypt)[key][letter]
+          shift_letters_by_key_cat[key] << map_new_letter_values(encrypt_decrypt)[key][letter]
         end
       end
      end
-    shifted_letters_by_final_key
+    shift_letters_by_key_cat
   end
 
   def shift_message(encrypt_decrypt)
-    shift_letters_by_final_key(encrypt_decrypt).values.reduce(&:zip).join
+    shift_letters_by_key_cat(encrypt_decrypt).values.reduce(&:zip).join
   end
 end
