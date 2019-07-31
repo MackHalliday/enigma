@@ -5,7 +5,7 @@ class Shift
 
 
   def initialize(message, key_values, offset_values)
-    @message = message.split(//)
+    @message = message.downcase.split(//)
     @key_values = key_values
     @offset_values = offset_values
     @characters = ('a'..'z').to_a << ' '
@@ -51,6 +51,6 @@ class Shift
   end
 
   def shift_message(encrypt_decrypt)
-    shift_letters_by_final_key(encrypt_decrypt).values.then { |first, *rest| first.zip(*rest) }.flatten.compact.join
+    shift_letters_by_final_key(encrypt_decrypt).values.reduce(&:zip).join
   end
 end
