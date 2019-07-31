@@ -39,8 +39,8 @@ class Shift
     shift_letters_by_key_cat = Hash.new{|hash, key| hash[key] = [] }
     assign_message_keys.map do |key, letters|
       letters.map do |letter|
-        if !@characters.include?(letter)
-          shifted_letters_by_final_key[key] << letter
+        if !@alphabet.include?(letter)
+          shift_letters_by_key_cat[key] << letter
         else
           shift_letters_by_key_cat[key] << map_new_letter_values(encrypt_decrypt)[key][letter]
         end
