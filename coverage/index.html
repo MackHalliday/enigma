@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <script src='./assets/0.10.2/application.js' type='text/javascript'></script>    
     <link href='./assets/0.10.2/application.css' media='screen, projection, print' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" type="image/png" href="./assets/0.10.2/favicon_red.png" />
+    <link rel="shortcut icon" type="image/png" href="./assets/0.10.2/favicon_green.png" />
     <link rel="icon" type="image/png" href="./assets/0.10.2/favicon.png" />
   </head>
   
@@ -14,18 +14,18 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-07-30T17:53:18-06:00">2019-07-30T17:53:18-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-07-30T17:55:37-06:00">2019-07-30T17:55:37-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">72.37%</span></span>
+    (<span class="covered_percent"><span class="green">100.0%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         35.9
+         67.35
        </span>
     </span> hits/line)
   </h2>
@@ -33,8 +33,8 @@
   <div>
     <b>4</b> files in total.
     <b>76</b> relevant lines. 
-    <span class="green"><b>55</b> lines covered</span> and
-    <span class="red"><b>21</b> lines missed </span>
+    <span class="green"><b>76</b> lines covered</span> and
+    <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -52,32 +52,32 @@
       
       <tr>
         <td class="strong"><a href="#1c32dc55d37f43a807f96c57cb8b497cd534e454" class="src_link" title="lib/enigma.rb">lib/enigma.rb</a></td>
-        <td class="red strong">35.29 %</td>
+        <td class="green strong">100.0 %</td>
         <td>33</td>
         <td>17</td>
-        <td>6</td>
-        <td>11</td>
-        <td>0.4</td>
+        <td>17</td>
+        <td>0</td>
+        <td>2.9</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#ef88a6a461cf6c1978e52b047a94a72c7d1fd60a" class="src_link" title="lib/key.rb">lib/key.rb</a></td>
-        <td class="red strong">58.33 %</td>
+        <td class="green strong">100.0 %</td>
         <td>23</td>
         <td>12</td>
-        <td>7</td>
-        <td>5</td>
-        <td>0.6</td>
+        <td>12</td>
+        <td>0</td>
+        <td>8.3</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#985a1b70eb4fb1cdc67ea3255571251162ae88ba" class="src_link" title="lib/offset.rb">lib/offset.rb</a></td>
-        <td class="red strong">61.54 %</td>
+        <td class="green strong">100.0 %</td>
         <td>24</td>
         <td>13</td>
-        <td>8</td>
-        <td>5</td>
-        <td>0.6</td>
+        <td>13</td>
+        <td>0</td>
+        <td>3.6</td>
       </tr>
       
       <tr>
@@ -87,7 +87,7 @@
         <td>34</td>
         <td>34</td>
         <td>0</td>
-        <td>79.6</td>
+        <td>144.8</td>
       </tr>
       
     </tbody>
@@ -109,11 +109,11 @@
         <div class="source_table" id="1c32dc55d37f43a807f96c57cb8b497cd534e454">
   <div class="header">
     <h3>lib/enigma.rb</h3>
-    <h4><span class="red">35.29 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>17</b> relevant lines. 
-      <span class="green"><b>6</b> lines covered</span> and
-      <span class="red"><b>11</b> lines missed.</span>
+      <span class="green"><b>17</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -162,14 +162,14 @@
           <code class="ruby">  def random_num</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="8">
-          
+        <li class="covered" data-hits="3" data-linenumber="8">
+          <span class="hits">3</span>
           
           <code class="ruby">    random_digits = []</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="9">
-          
+        <li class="covered" data-hits="18" data-linenumber="9">
+          <span class="hits">18</span>
           
           <code class="ruby">      5.times do random_digits &lt;&lt; rand(0..9).to_s</code>
         </li>
@@ -180,8 +180,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="11">
-          
+        <li class="covered" data-hits="3" data-linenumber="11">
+          <span class="hits">3</span>
           
           <code class="ruby">    key = random_digits.join</code>
         </li>
@@ -204,20 +204,20 @@
           <code class="ruby">  def encrypt(message, key = random_num, date = Time.now.strftime(&quot;%d%m%y&quot;))</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="15">
-          
+        <li class="covered" data-hits="3" data-linenumber="15">
+          <span class="hits">3</span>
           
           <code class="ruby">    key_encrypt = Key.new(key)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="16">
-          
+        <li class="covered" data-hits="3" data-linenumber="16">
+          <span class="hits">3</span>
           
           <code class="ruby">    offset_encrypt = Offset.new(date)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="17">
-          
+        <li class="covered" data-hits="3" data-linenumber="17">
+          <span class="hits">3</span>
           
           <code class="ruby">    shift_encrypt = Shift.new(message, key_encrypt.get_key_values, offset_encrypt.get_key_values)</code>
         </li>
@@ -228,8 +228,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="19">
-          
+        <li class="covered" data-hits="3" data-linenumber="19">
+          <span class="hits">3</span>
           
           <code class="ruby">    {encryption: shift_encrypt.shift_message(1),</code>
         </li>
@@ -264,20 +264,20 @@
           <code class="ruby">  def decrypt(message, key, date = Time.now.strftime(&quot;%d%m%y&quot;))</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="25">
-          
+        <li class="covered" data-hits="2" data-linenumber="25">
+          <span class="hits">2</span>
           
           <code class="ruby">    key_decrypt = Key.new(key)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="26">
-          
+        <li class="covered" data-hits="2" data-linenumber="26">
+          <span class="hits">2</span>
           
           <code class="ruby">    offset_decrypt = Offset.new(date)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="27">
-          
+        <li class="covered" data-hits="2" data-linenumber="27">
+          <span class="hits">2</span>
           
           <code class="ruby">    shift_decrypt = Shift.new(message, key_decrypt.get_key_values, offset_decrypt.get_key_values)</code>
         </li>
@@ -288,8 +288,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="29">
-          
+        <li class="covered" data-hits="2" data-linenumber="29">
+          <span class="hits">2</span>
           
           <code class="ruby">    {decryption: shift_decrypt.shift_message(-1),</code>
         </li>
@@ -326,11 +326,11 @@
         <div class="source_table" id="ef88a6a461cf6c1978e52b047a94a72c7d1fd60a">
   <div class="header">
     <h3>lib/key.rb</h3>
-    <h4><span class="red">58.33 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>12</b> relevant lines. 
-      <span class="green"><b>7</b> lines covered</span> and
-      <span class="red"><b>5</b> lines missed.</span>
+      <span class="green"><b>12</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -379,14 +379,14 @@
           <code class="ruby">  def initialize(key)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="8">
-          
+        <li class="covered" data-hits="15" data-linenumber="8">
+          <span class="hits">15</span>
           
           <code class="ruby">    @key = key</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="9">
-          
+        <li class="covered" data-hits="15" data-linenumber="9">
+          <span class="hits">15</span>
           
           <code class="ruby">    @key_categories = [:a, :b, :c, :d]</code>
         </li>
@@ -409,8 +409,8 @@
           <code class="ruby">  def create_pairs</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="13">
-          
+        <li class="covered" data-hits="11" data-linenumber="13">
+          <span class="hits">11</span>
           
           <code class="ruby">    @key.split(//).each_cons(2).to_a</code>
         </li>
@@ -433,8 +433,8 @@
           <code class="ruby">  def join_pairs</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="17">
-          
+        <li class="covered" data-hits="45" data-linenumber="17">
+          <span class="hits">45</span>
           
           <code class="ruby">    create_pairs.map {|pair| pair[0].to_s + pair[1].to_s}</code>
         </li>
@@ -457,8 +457,8 @@
           <code class="ruby">  def get_key_values</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="21">
-          
+        <li class="covered" data-hits="7" data-linenumber="21">
+          <span class="hits">7</span>
           
           <code class="ruby">    Hash[@key_categories.zip join_pairs]</code>
         </li>
@@ -483,11 +483,11 @@
         <div class="source_table" id="985a1b70eb4fb1cdc67ea3255571251162ae88ba">
   <div class="header">
     <h3>lib/offset.rb</h3>
-    <h4><span class="red">61.54 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>13</b> relevant lines. 
-      <span class="green"><b>8</b> lines covered</span> and
-      <span class="red"><b>5</b> lines missed.</span>
+      <span class="green"><b>13</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -542,14 +542,14 @@
           <code class="ruby">  def initialize(date)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="9">
-          
+        <li class="covered" data-hits="9" data-linenumber="9">
+          <span class="hits">9</span>
           
           <code class="ruby">    @date = date</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="10">
-          
+        <li class="covered" data-hits="9" data-linenumber="10">
+          <span class="hits">9</span>
           
           <code class="ruby">    @key_categories = [:a, :b, :c, :d]</code>
         </li>
@@ -572,8 +572,8 @@
           <code class="ruby">  def square_number</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="14">
-          
+        <li class="covered" data-hits="8" data-linenumber="14">
+          <span class="hits">8</span>
           
           <code class="ruby">    @date.to_i ** 2</code>
         </li>
@@ -596,8 +596,8 @@
           <code class="ruby">  def last_digits</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="18">
-          
+        <li class="covered" data-hits="7" data-linenumber="18">
+          <span class="hits">7</span>
           
           <code class="ruby">    square_number.to_s[-(@key_categories.count)..-1].split(&#39;&#39;)</code>
         </li>
@@ -620,8 +620,8 @@
           <code class="ruby">  def get_key_values</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="22">
-          
+        <li class="covered" data-hits="6" data-linenumber="22">
+          <span class="hits">6</span>
           
           <code class="ruby">    key_hash = Hash[@key_categories.zip last_digits]</code>
         </li>
@@ -699,32 +699,32 @@
           <code class="ruby">  def initialize(message, key_values, offset_values)</code>
         </li>
       
-        <li class="covered" data-hits="50" data-linenumber="8">
-          <span class="hits">50</span>
+        <li class="covered" data-hits="55" data-linenumber="8">
+          <span class="hits">55</span>
           
           <code class="ruby">    @message = message.split(//)</code>
         </li>
       
-        <li class="covered" data-hits="50" data-linenumber="9">
-          <span class="hits">50</span>
+        <li class="covered" data-hits="55" data-linenumber="9">
+          <span class="hits">55</span>
           
           <code class="ruby">    @key_values = key_values</code>
         </li>
       
-        <li class="covered" data-hits="50" data-linenumber="10">
-          <span class="hits">50</span>
+        <li class="covered" data-hits="55" data-linenumber="10">
+          <span class="hits">55</span>
           
           <code class="ruby">    @offset_values = offset_values</code>
         </li>
       
-        <li class="covered" data-hits="50" data-linenumber="11">
-          <span class="hits">50</span>
+        <li class="covered" data-hits="55" data-linenumber="11">
+          <span class="hits">55</span>
           
           <code class="ruby">    @characters = (&#39;a&#39;..&#39;z&#39;).to_a &lt;&lt; &#39; &#39;</code>
         </li>
       
-        <li class="covered" data-hits="50" data-linenumber="12">
-          <span class="hits">50</span>
+        <li class="covered" data-hits="55" data-linenumber="12">
+          <span class="hits">55</span>
           
           <code class="ruby">    @key_categories = [:a, :b, :c, :d]</code>
         </li>
@@ -747,20 +747,20 @@
           <code class="ruby">  def create_final_key(encrypt_decrypt)</code>
         </li>
       
-        <li class="covered" data-hits="242" data-linenumber="16">
-          <span class="hits">242</span>
+        <li class="covered" data-hits="462" data-linenumber="16">
+          <span class="hits">462</span>
           
           <code class="ruby">    final_key_values = Hash.new</code>
         </li>
       
-        <li class="covered" data-hits="242" data-linenumber="17">
-          <span class="hits">242</span>
+        <li class="covered" data-hits="462" data-linenumber="17">
+          <span class="hits">462</span>
           
           <code class="ruby">    @key_values.map do |key, value|</code>
         </li>
       
-        <li class="covered" data-hits="968" data-linenumber="18">
-          <span class="hits">968</span>
+        <li class="covered" data-hits="1848" data-linenumber="18">
+          <span class="hits">1848</span>
           
           <code class="ruby">      final_key_values[key] = (@key_values[key].to_i + @offset_values[key].to_i) * (encrypt_decrypt)</code>
         </li>
@@ -771,8 +771,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="242" data-linenumber="20">
-          <span class="hits">242</span>
+        <li class="covered" data-hits="462" data-linenumber="20">
+          <span class="hits">462</span>
           
           <code class="ruby">   final_key_values</code>
         </li>
@@ -795,20 +795,20 @@
           <code class="ruby">  def assign_message_keys</code>
         </li>
       
-        <li class="covered" data-hits="35" data-linenumber="24">
-          <span class="hits">35</span>
+        <li class="covered" data-hits="60" data-linenumber="24">
+          <span class="hits">60</span>
           
           <code class="ruby">    new_hash = Hash.new{|hash, key| hash[key] = [] }</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="25">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="12" data-linenumber="25">
+          <span class="hits">12</span>
           
           <code class="ruby">    message.each.with_index do |char, index|</code>
         </li>
       
-        <li class="covered" data-hits="77" data-linenumber="26">
-          <span class="hits">77</span>
+        <li class="covered" data-hits="132" data-linenumber="26">
+          <span class="hits">132</span>
           
           <code class="ruby">        new_hash[@key_categories[index % @key_categories.count]] &lt;&lt; char</code>
         </li>
@@ -819,8 +819,8 @@
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="28">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="12" data-linenumber="28">
+          <span class="hits">12</span>
           
           <code class="ruby">    new_hash</code>
         </li>
@@ -843,20 +843,20 @@
           <code class="ruby">  def map_new_letter_values(encrypt_decrypt)</code>
         </li>
       
-        <li class="covered" data-hits="60" data-linenumber="32">
-          <span class="hits">60</span>
+        <li class="covered" data-hits="115" data-linenumber="32">
+          <span class="hits">115</span>
           
           <code class="ruby">    key_shift_values = Hash.new</code>
         </li>
       
-        <li class="covered" data-hits="60" data-linenumber="33">
-          <span class="hits">60</span>
+        <li class="covered" data-hits="115" data-linenumber="33">
+          <span class="hits">115</span>
           
           <code class="ruby">    @key_categories.each do |key|</code>
         </li>
       
-        <li class="covered" data-hits="240" data-linenumber="34">
-          <span class="hits">240</span>
+        <li class="covered" data-hits="460" data-linenumber="34">
+          <span class="hits">460</span>
           
           <code class="ruby">      key_shift_values[key] = Hash[@characters.zip(@characters.rotate(create_final_key(encrypt_decrypt)[key].to_i))]</code>
         </li>
@@ -867,8 +867,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="60" data-linenumber="36">
-          <span class="hits">60</span>
+        <li class="covered" data-hits="115" data-linenumber="36">
+          <span class="hits">115</span>
           
           <code class="ruby">    key_shift_values</code>
         </li>
@@ -891,26 +891,26 @@
           <code class="ruby">  def shift_letters_by_final_key(encrypt_decrypt)</code>
         </li>
       
-        <li class="covered" data-hits="30" data-linenumber="40">
-          <span class="hits">30</span>
+        <li class="covered" data-hits="55" data-linenumber="40">
+          <span class="hits">55</span>
           
           <code class="ruby">    shifted_letters_by_final_key = Hash.new{|hash, key| hash[key] = [] }</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="41">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="11" data-linenumber="41">
+          <span class="hits">11</span>
           
           <code class="ruby">    assign_message_keys.map do |key, letters|</code>
         </li>
       
-        <li class="covered" data-hits="24" data-linenumber="42">
-          <span class="hits">24</span>
+        <li class="covered" data-hits="44" data-linenumber="42">
+          <span class="hits">44</span>
           
           <code class="ruby">      letters.map do |letter|</code>
         </li>
       
-        <li class="covered" data-hits="66" data-linenumber="43">
-          <span class="hits">66</span>
+        <li class="covered" data-hits="121" data-linenumber="43">
+          <span class="hits">121</span>
           
           <code class="ruby">        if @characters.include?(letter) == false</code>
         </li>
@@ -927,8 +927,8 @@
           <code class="ruby">        else</code>
         </li>
       
-        <li class="covered" data-hits="59" data-linenumber="46">
-          <span class="hits">59</span>
+        <li class="covered" data-hits="114" data-linenumber="46">
+          <span class="hits">114</span>
           
           <code class="ruby">          shifted_letters_by_final_key[key] &lt;&lt; map_new_letter_values(encrypt_decrypt)[key][letter]</code>
         </li>
@@ -951,8 +951,8 @@
           <code class="ruby">     end</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="50">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="11" data-linenumber="50">
+          <span class="hits">11</span>
           
           <code class="ruby">    shifted_letters_by_final_key</code>
         </li>
@@ -975,8 +975,8 @@
           <code class="ruby">  def shift_message(encrypt_decrypt)</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="54">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="20" data-linenumber="54">
+          <span class="hits">20</span>
           
           <code class="ruby">    shift_letters_by_final_key(encrypt_decrypt).values.then { |first, *rest| first.zip(*rest) }.flatten.compact.join</code>
         </li>

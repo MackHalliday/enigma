@@ -80,6 +80,6 @@ class ShiftTest < MiniTest::Test
 
     assert_equal "keder ohulw!!!", @shift_3.shift_message(1)
     assert_equal "keder ohulw#%*", @shift_4.shift_message(1)
-    assert_equal "$agoy", @shift_5.shift_message(1)
+    assert_equal "$annz", @shift_5.shift_message(1)
   end
 end
