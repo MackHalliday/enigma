@@ -22,7 +22,7 @@ encrypted_message = handle.read
 handle.close
 
 
-decryption = enigma.decrypt(encrypted_message, ARGV[2], ARGV[3])
+decryption = enigma.decrypt(encrypted_message, ARGV[2], date = ARGV[3])
 
 encrypted = File.open(ARGV[1], "w")
 #writes m bktvmnwgu
