@@ -17,7 +17,6 @@ require './lib/shift'
 enigma = Enigma.new
 
 handle = File.open(ARGV[0], "r")
-#reads "hello world"
 encrypted_message = handle.read
 handle.close
 
@@ -25,7 +24,6 @@ handle.close
 decryption = enigma.decrypt(encrypted_message, ARGV[2], date = ARGV[3])
 
 encrypted = File.open(ARGV[1], "w")
-#writes m bktvmnwgu
 encrypted.write(decryption[:decryption])
 encrypted.close
 
