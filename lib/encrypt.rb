@@ -9,8 +9,7 @@ handle = File.open(ARGV[0], "r")
 message = handle.read
 handle.close
 
-encryption = enigma.encrypt(message, key = ARGV[2], date = ARGV[3])
-
+encryption = enigma.encrypt(message)
 encrypted = File.open(ARGV[1], "w")
 encrypted.write(encryption[:encryption])
 encrypted.close

@@ -40,7 +40,7 @@ class Shift
     shifted_letters_by_final_key = Hash.new{|hash, key| hash[key] = [] }
     assign_message_keys.map do |key, letters|
       letters.map do |letter|
-        if @characters.include?(letter) == false
+        if !@characters.include?(letter)
           shifted_letters_by_final_key[key] << letter
         else
           shifted_letters_by_final_key[key] << map_new_letter_values(encrypt_decrypt)[key][letter]
